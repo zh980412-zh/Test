@@ -1,0 +1,22 @@
+# name属性定义工作流的名称
+name: hello github actions
+
+# on 用来指定能够触发工作流执行的事件
+on:
+  # 当对main分支进行push操作时，这个工作流就触发了
+  push:
+    branches: [ main ]
+
+
+# 一个workflow是由一个或多个jobs构成的，在jobs中说明要交给github action执行的任务
+jobs:
+  # 这个jobs中的一个任务，名字叫build(随便怎么取)
+  build:
+    # 用来指定这个任务在什么操作系统上跑(服务器是GitHub免费提供的)
+    runs-on: ubuntu-latest
+
+    # 指出这个build任务的步骤
+    steps:
+      # 详细步骤
+      - name: run a one-line script
+        run: echo hello, github action!
